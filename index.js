@@ -1,8 +1,15 @@
 
 var btn = document.getElementById("btn");
+var rangSpeed = document.getElementById("speed");
+var maxSpeed = 1000;
+var speedRotate = 40;
 
 btn.addEventListener("click",function(){
     rotate();   
+});
+
+rangSpeed.addEventListener("input",function(){
+    speedRotate = maxSpeed - rangSpeed.value;
 });
 
 function refresh(){
@@ -29,7 +36,7 @@ function refresh(){
     for (var i = 1; i<1000;i+=10){
         dice1.style.transform = 'rotate('+i+'deg)';
         dice2.style.transform = 'rotate('+i+'deg)';
-        await delay(40);
+        await delay(speedRotate);
     }
 
     refresh();
